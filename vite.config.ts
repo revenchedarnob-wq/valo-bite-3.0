@@ -3,10 +3,10 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 
-// GitHub Pages hosts this repo at /Valo-bite-2.0/, so the asset base must
-// match the subpath. `VITE_BASE` can still override in CI/local for other
-// environments, but the fixed default guarantees correct subpath assets.
-const base = process.env.VITE_BASE ?? "/Valo-bite-2.0/";
+// Vercel serves the app at the domain root, so the default base is "/".
+// `VITE_BASE` can override in CI/local when the app is hosted under a
+// subpath (e.g. GitHub Pages) — the router basename follows BASE_URL.
+const base = process.env.VITE_BASE ?? "/";
 
 // https://vite.dev/config/
 export default defineConfig({
